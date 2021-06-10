@@ -6,7 +6,7 @@ const { sendSuccessResponse } = require('../helpers/responseHelper');
 const { getAuthToken } = require('../helpers/jwtHelper');
 
 const registerUser = async (req, res, next) => {
-    const { email, password, first_name, last_name } = req.body;
+    const { email, password, firstName, lastName } = req.body;
 
     const user = await User.findOne({
         where: {
@@ -23,8 +23,8 @@ const registerUser = async (req, res, next) => {
     try {
         await User.create({
             email,
-            last_name,
-            first_name,
+            lastName,
+            firstName,
             password: hashedPassword,
             last_login: Date.now(),
             active: true,
@@ -32,8 +32,8 @@ const registerUser = async (req, res, next) => {
 
         return sendSuccessResponse(res, {
             email,
-            last_name,
-            first_name,
+            lastName,
+            firstName,
         });
     } catch (e) {
         next(e);
