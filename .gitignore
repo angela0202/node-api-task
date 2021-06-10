@@ -1,0 +1,12 @@
+**/node_modules
+/.pnp
+.pnp.js
+desktop.ini
+
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.idea
+package-lock.json
